@@ -102,6 +102,7 @@ plot_allfits.plot(fitrange,logfunc(fitrange,-2.43,-4.05),"m-.",label="Benedict e
 plot_allfits.legend()
 plot_allfits.grid(color='lightgray',linestyle="--")
 
+
 plt.show()
 
 
@@ -109,3 +110,6 @@ plt.show()
 table = esahubble.query_target("CK_Cam")
 print(str(table))
 '''
+
+
+# To separate out the two curves from the general dataset, first remove the miscategorizations, then using data with with P > 10 (?) days, split into top and bottom based on -M < .05*P+2.55 (adjust somewhat if needed), apply fit, then split this data based on which fit is closest.
