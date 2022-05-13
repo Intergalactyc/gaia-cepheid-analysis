@@ -99,6 +99,7 @@ plot_allfits.plot(fitrange,logfunc(fitrange,*popt_gn),"r-",label="General datase
 plot_allfits.plot(fitrange,logfunc(fitrange,*popt_rd),"r--",label="General fit with removals")
 plot_allfits.plot(fitrange,logfunc(fitrange,-2.76,-4.16),"g-.",label="Ferrarese et al., 1996")
 plot_allfits.plot(fitrange,logfunc(fitrange,-2.43,-4.05),"m-.",label="Benedict et al., 2002")
+plot_allfits.plot(fitrange,logfunc(fitrange,-3.05,-3.49),"y-",label="Newbie")
 plot_allfits.legend()
 plot_allfits.grid(color='lightgray',linestyle="--")
 
