@@ -7,7 +7,7 @@ from astroquery.esa.hubble import ESAHubble
 esahubble = ESAHubble()
 
 # Run astroquery job to combine gaia_source and vari_ceph data for ten classical Cepheids. Selection criteria: Fundamental oscillation mode, luminosity error under 5%, parallax error under 5%. All have very low uncertainty values.
-strictdr2_cc = Gaia.launch_job_async("select source_id, 4.83-log(2.5,lum_val) as absmag, pf, parallax_over_error from gaiadr2.gaia_source inner join gaiadr2.vari_cepheid using (source_id) where 4.83-log(2.5,lum_val) < -1 and parallax_over_error > 20 and mode_best_classification = 'FUNDAMENTAL' and type_best_classification = 'DCEP' and  (lum_percentile_upper-lum_val)/lum_val < 0.05").get_results()
+strictdr2_cc = Gaia.launch_job_async("select source_id, 4.83-log(2.5,lum_val) as absmag, pf, parallax_over_error from gaiadr2.gaia_source inner join gaiadr2.vari_cepheid using (source_id) where 4.83-log(2.5,lum_val) < -1 and parallax_over_error > 20 and mode_best_classification = 'FUNDAMENTAL' and type_best_classification = 'DCEP' and (lum_percentile_upper-lum_val)/lum_val < 0.05").get_results()
 periods_st = np.array(strictdr2_cc["pf"]) # Extract periods of dataset
 mags_st = np.array(strictdr2_cc["absmag"]) # Extract magnitudes of dataset
 # This query returns the following ten Cepheids:
